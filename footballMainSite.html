@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html ng-app="root">
+<head>
+  <link rel="stylesheet" type="text/css" href="football.css">
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
+  <script src="js/root.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body ng-controller="index">
+
+  <nav class="navbar navbar-inverse">
+    <div  class="container-fluid">
+	     <div id="napis">Football site</div>
+    </div>
+  </nav>
+
+  <div class="wrapper text-center" style=" display:inline-block; width:100%;height:; margin-top:0%; background-color: white;" id="glavno">
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka0"><img ng-click="getStanding(446); showLeague()"  class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/2.png' class="img-fluid " alt=""></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka1"><img ng-click="getStanding(452); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/10.png'></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka2"><img ng-click="getStanding(445); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/23.png'></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka3"><img ng-click="getStanding(449); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/11.png'></box><br>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka4"><img ng-click="getStanding(456); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/12.png'></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka5"><img ng-click="getStanding(455); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/15.png'></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka6"><img ng-click="getStanding(450); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500/9.png'></box>
+    <box class="box" style=" display:inline-block; width:200px; height:200px; margin:20px;"id="kocka7"><img ng-click="getStanding(457); showLeague()" class="slika" height=180px; width=180px; src='http://a.espncdn.com/combiner/i?img=/i/leaguelogos/soccer/500-dark/85.png'></box>
+  </div>
+
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-12" style="width:112%; margin-left:10%; " id="standing">
+        <table ng-if="leagueView == 'show'" style="width:70%;" class="table table-striped table-bordered table-sm" >
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Rank</th>
+              <th scope="col">Team name</th>
+              <th scope="col">Games played</th>
+              <th scope="col">W</th>
+              <th scope="col">L</th>
+              <th scope="col">D</th>
+              <th scope="col">Points</th>
+            </tr>
+          </thead>
+          <tbody id="telos">
+            <tr ng-click="getTeam(dt._links.team.href);getPlayers(dt._links.team.href);reset();hideLeague();getFixtures(dt._links.team.href)" ng-if="data.standing" ng-repeat="dt in data.standing">
+              <td>{{dt.position}}</td>
+              <td >{{dt.teamName}}</a><img ng-if="dt.crestURI" width="30px" height="30px" src="{{dt.crestURI}}" style="float:right"></td>
+              <td>{{dt.playedGames}}</td>
+              <td>{{dt.wins}}</td>
+              <td>{{dt.losses}}</td>
+              <td>{{dt.draws}}</td>
+              <td>{{dt.points}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+<!--     ______________________________________________________           -->
+      <div class="col-sm-4"  >
+	       <div ng-if="rosterView == 'show'" id="tabela">
+		         <div id="podatki">
+		             <span class="line"><h2><span>Team name:</span></h2></span><span class "line2"><h2>{{data.name}}</h2></span>
+		               <span class="line"><h2><span>Abriviation:</span></h2></span><span class "line2"><h2>{{data.code}}</h2></span>
+		                 <img width="50px" height="50px" ng-if="data.crestUrl" src="{{data.crestUrl}}" id="picture">
+		                 </div>
+		                 </div>
+		                   <div>
+                         <div style="max-height:300px; overflow:auto;" class="panel panel-default">
+                           <div class="panel panel-header" ng-repeat="dts in y">
+                             <div ng-click="logoa(0)"class="panel-body" style="border:3px;" >
+                               <span>
+                                 <span  id="{{dts.$$hashKey}}h"></span>
+                                 <span style="overflow-x: hidden; box-sizing: border-box; "></span>
+                                 <span id="1"></span> <!--this is where the .code should display -->
+                                 <span>{{dts.result.goalsHomeTeam}}<span>-</span>{{dts.result.goalsAwayTeam}}</span>
+                                 <span id="2"></span> <!--this is where the .code should display -->
+                               </span>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+		                   </div>
+	     <div ng-if="rosterView == 'show'" class="col-sm-8" >
+		       <table style="width:200%;" class="table table-striped table-bordered table-sm" id="igralci">
+			          <thead class="thead-dark">
+				              <tr>
+					               <th scope="col">Name</th>
+					               <th scope="col">Position</th>
+					               <th scope="col">Jersey number</th>
+					               <th scope="col">Nationality</th>
+				             </tr>
+			         </thead>
+			         <tbody id="telo">
+				             <tr ng-repeat="player in roster">
+					              <td>{{player.name}}</td>
+					              <td>{{player.position}}</td>
+					              <td>{{player.jerseyNumber}}</td>
+					              <td>{{player.nationality}}</td>
+				             </tr>
+			         </tbody>
+		        </table>
+	      </div>
+	     </div>
+
+     </div>
+   </div><br>
+
+  <footer class="container-fluid text-center" style="margin-top:200%" id="footer">
+    <p>Footer Text</p>
+  </footer>
+
+</body>
+</html>
