@@ -1,0 +1,194 @@
+
+#Okvir
+{
+width:100%;
+height:100%;
+}
+
+#naslov{
+	width:100%;
+	text-align:center;
+	background-color:#323232;
+	font-size:30px;
+	color:white;
+	line-height:80px;
+}
+
+.push {
+  margin-top:4%;
+  background-color:#323232;
+  height:60px;
+  color:white;
+  font-family:;
+  line-height:50px;
+  text-align:center;
+	margin-bottom: 0px;
+
+}
+#rapper{margin-bottom: 2.5%;}
+
+#hello{
+
+}
+
+#kocka0{
+	height:25%;
+	width:15%;
+
+}
+#kocka1{
+	height:25%;
+	width:15%;
+
+}
+#kocka2{
+	height:25%;
+	width:15%;
+
+}
+
+#kocka3{
+	height:25%;
+	width:15%;
+
+}
+
+#kocka4{
+	height:25%;
+	width:15%;
+
+}
+#kocka5{
+	height:25%;
+	width:15%;
+
+}
+#kocka6{
+	height:25%;
+	width:15%;
+
+}
+#kocka7{
+	height:25%;
+	width:15%;
+
+}
+
+
+.slika {
+    width: 200px;
+    height: 200px;
+    color: #000;
+	text-align:center;
+
+}
+
+.slika:hover {
+    cursor: hand;
+    cursor: pointer;
+    opacity: .9;
+	border: solid black 2px;
+	-webkit-transition-duration: 0.2s;
+	transition-duration: 0.2s;
+	padding:10px;
+
+}
+
+#glavno
+{
+	height:60%;
+	width:100%;
+}
+
+#telos tr:hover{
+	cursor: pointer;
+	opacity: .9;
+	outline-style:solid;
+	outline-color: black;
+	outline-width:1px;
+
+
+}
+td{
+	text-align:center;
+
+}
+tr{
+	text-align:center;
+}
+#th{
+	text-align:center;
+}
+#podatki{
+    width: 85%;
+	margin-left:;
+}
+#rez{
+	width:85%;
+	margin-top:5%;
+	margin-left:0px;
+	font-size: 15px;
+}
+
+#picture{
+	height:200px;
+	width:200px;
+
+}
+
+#tabela {
+
+    width:;
+
+
+}
+#igralci {
+    width: ;
+	margin-bottom:100px;
+
+}
+
+#data{
+	font-size:18;
+	color:red;
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+#data2{
+	font-size:24;
+	color:black;
+	font-family: 'Open Sans Condensed', sans-serif;
+
+}
+
+.footer {
+    position: fixed;
+		font-family:;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    text-align: center;
+		margin-top:10%;}
+
+#standing
+{
+    width: 70%;
+    min-height:200px;
+	margin-left:;
+	margin-bottom: 100px;
+
+}
+.line{display:block; margin:25px}
+.line h2{font-size:15px; text-align:center; border-bottom:1px solid black; position:relative; font-family: Helvetica; font-weight:bold;}
+.line h2 span { background-color: ; position: relative; top: 10px; padding: 0 10px;}
+#rez{margin-bottom:5%;}
+#tb{
+	text-align:center;
+}
+#1{
+	text-align:left;
+}
+#2{
+	text-align:right;
+}

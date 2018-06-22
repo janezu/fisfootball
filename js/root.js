@@ -38,6 +38,7 @@ helloAjaxApp.controller("index", ['$scope', '$http', function($scope, $http) {
 		});
 		result.success(function(respond) {
 			$scope.dat = respond;
+
 		});
 		result.error(function(respond) {
 			alert( "failure message: " + respond);
@@ -52,17 +53,37 @@ helloAjaxApp.controller("index", ['$scope', '$http', function($scope, $http) {
 		});
 		resu.success(function(respo) {
 			$scope.da = respo;
+			document.getElementById("1").innerHTML = $scope.da.code;
 		});
 		resu.error(function(respo) {
 			alert( "failure message: " + respo);
 		});
 	};
 
+	$scope.getTeama = function(url2){
+
+
+		var headers={ 'X-Auth-Token': 'e135ce04a942427cb287aaf2f8bec7ee' };
+		var url = url2;
+		var result = $http({method: 'GET', url, headers: {
+		'X-Auth-Token': 'e135ce04a942427cb287aaf2f8bec7ee'}
+		});
+		result.success(function(respond) {
+			$scope.daa = respond;
+			document.getElementById("2").innerHTML = $scope.daa.code;
+
+		});
+		result.error(function(respond) {
+			alert( "failure message: " + respond);
+		});
+	}
+
+
+
 	$scope.roster = [];
 	$scope.getPlayers = function(url1){
-		var players;
 		$scope.rosterView = "show";
-		var url = url1 +'/players/';
+		var url = url1 +'/players/?season=2016';
 		var res = $http({method: 'GET', url, headers: {
 		'X-Auth-Token': 'e135ce04a942427cb287aaf2f8bec7ee'}
 		});
@@ -148,14 +169,15 @@ helloAjaxApp.controller("index", ['$scope', '$http', function($scope, $http) {
 
 };
 		$scope.getFixtures = function(url2){
-						var datas;
+						$scope.y = [];
 						var headers={ 'X-Auth-Token': 'e135ce04a942427cb287aaf2f8bec7ee' };
-						var url = url2+'/fixtures';
+						var url = url2+'/fixtures/?season=2017';
 						var res = $http({method: 'GET', url, headers: {
 						'X-Auth-Token': 'e135ce04a942427cb287aaf2f8bec7ee'}
 						});
 						res.success(function(response) {
 							$scope.datas = response;
+							console.log($scope.datas);
 							$scope.x= $scope.datas.count-5;
 							var y=[];
 
@@ -164,6 +186,7 @@ helloAjaxApp.controller("index", ['$scope', '$http', function($scope, $http) {
 
 							}
 							$scope.datas.fixtures = $scope.y;
+							console.log($scope.y);
 						});
 						res.error(function(response) {
 							alert( "failure message: " + response);
@@ -172,19 +195,19 @@ helloAjaxApp.controller("index", ['$scope', '$http', function($scope, $http) {
 
 				$scope.result = function(x,y,z){
 
+
 					if(x>y){
 
-						document.getElementById(z+"h").innerHTML = "W";
-						document.getElementById(z+"a").innerHTML = "L";
+						document.getElementById(z+"h").style.color = "green";
+						document.getElementById(z+"h").style.fontWeight = "bold";
+						document.getElementById(z+"a").style.color = "red";
 					}
 					if(x<y){
 
-						document.getElementById(z+"h").innerHTML = "L";
-						document.getElementById(z+"a").innerHTML = "W";}
+						document.getElementById(z+"h").style.color = "red";
+						document.getElementById(z+"a").style.color = "green";
+						document.getElementById(z+"a").style.fontWeight = "bold";}
 
-					if(x==y){
-						document.getElementById(z+"h").innerHTML = "D";
-						document.getElementById(z+"a").innerHTML = "D";}
 
 
 				}
